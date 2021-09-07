@@ -1,0 +1,10 @@
+main: pl.q1zz.Main
+name: q1zZ-DiscordReward
+author: q1zZ
+version: 0.1
+api-version: 1.16
+website: https://zetcraft.pl
+description: by q1zZ
+commands:
+  q1zzReload:
+    aliases: [q1zZ-DiscordReward]

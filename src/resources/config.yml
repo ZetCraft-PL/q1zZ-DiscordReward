@@ -1,0 +1,22 @@
+# INFORMATION #
+# Languages: pl_PL, en_US, CustomMessages
+# SaveTypes: Currently only flat
+BotSettings:
+  token: 'your_bot_token!' #you can generate it on the website https://discord.com/developers/applications
+  status: 'q1zZ-DiscordReward' #bot status
+  language: "en_US" #pl_PL, en_US, CustomMessages
+StorageSettings:
+  SaveType: "flat" #Currently only flat
+ReceivingAwardsSettings:
+  ReceivingRewardChannelID: '735509943775527000' #id of channel to receiving reward
+  RewardSuccesCommand: 'give %nick% diamond 1'
+  RewardSuccesBroadcast: "\n &fPlayer&d %nick% &fclaimed the discord reward! \n"
+  RewardSuccesGiveRole: false
+  RewardSuccesRoleID: '847193618585223248'
+CustomMessages:
+  WrongNickname: 'Enter the correct nickname!'
+  RewardAlreadyClaimed: 'Reward already been claimed!'
+  PlayerOffline: 'You must be online to claim reward!'
+  SuccessfullyReceived: 'You successfully received reward to **%nick%**!'
+  NoReloadPermission: "&cYou don't have permission to use this command!"
+
