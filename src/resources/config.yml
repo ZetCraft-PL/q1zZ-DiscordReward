@@ -1,22 +1,70 @@
-# INFORMATION #
-# Languages: pl_PL, en_US, CustomMessages
-# SaveTypes: Currently only flat
-BotSettings:
-  token: 'your_bot_token!' #you can generate it on the website https://discord.com/developers/applications
-  status: 'q1zZ-DiscordReward' #bot status
-  language: "en_US" #pl_PL, en_US, CustomMessages
-StorageSettings:
-  SaveType: "flat" #Currently only flat
-ReceivingAwardsSettings:
-  ReceivingRewardChannelID: '735509943775527000' #id of channel to receiving reward
-  RewardSuccesCommand: 'give %nick% diamond 1'
-  RewardSuccesBroadcast: "\n &fPlayer&d %nick% &fclaimed the discord reward! \n"
-  RewardSuccesGiveRole: false
-  RewardSuccesRoleID: '847193618585223248'
-CustomMessages:
-  WrongNickname: 'Enter the correct nickname!'
-  RewardAlreadyClaimed: 'Reward already been claimed!'
-  PlayerOffline: 'You must be online to claim reward!'
-  SuccessfullyReceived: 'You successfully received reward to **%nick%**!'
-  NoReloadPermission: "&cYou don't have permission to use this command!"
+# MySQL configuration.
+datebase:
+  hostname: 'localhost'
+  port: 3306
+  username: 'root'
+  datebase: 'discordRewards'
+  password: 'password'
+# Discord bot configuration.
+bot:
+  token: 'your_bot_token!'
+  status: 'q1zZ-DiscordRewards v0.2'
+# Available methods: MySQL, Flat
+data:
+  savetype: 'MySQL'
+# Receiving reward settings.
+settings:
+  # Id of channel to receiving reward
+  channelid: '826894120471494697'
+# Reward settings.
+reward:
+  # commands executed when receiving the reward
+  commands:
+    - give %player% diamond 1
+  # broadcast will be sent when received the reward
+  broadcast:
+    - '&8&m--------------------------'
+    - ' '
+    - '&8» &fPlayer &9%player% &fclaimed the discord reward!'
+    - ' '
+    - '&8» &7Discord: &fhttps://discord.gg/ynqmeCKV'
+    - ' '
+    - '&8&m--------------------------'
+messages:
+  embeds:
+    # User entered wrong nickname.
+    wrongNickname:
+      # embed title.
+      title: 'ERROR!'
+      # embed description. To create new line use, %newline%
+      description: '%mention% > You entered the wrong nickname!'
+      # in hex format.
+      color: '#ff0000'
+    # Player is offline.
+    playerOffline:
+      # embed title.
+      title: 'ERROR!'
+      # embed description. To create new line use, %newline%
+      description: '%mention% > You must be online on the server!'
+      # in hex format.
+      color: '#ff0000'
+    # Reward has been already received.
+    alreadyReceived:
+      # embed title.
+      title: 'ERROR!'
+      # embed description. To create new line use, %newline%
+      description: '%mention% > Reward already been received!'
+      # in hex format.
+      color: '#ff0000'
+    # Reward has been successfully received.
+    successfulReceived:
+      # embed title.
+      title: 'SUCCES!'
+      # embed description. To create new line use, %newline%
+      description: '%mention% > You successfully received reward to **%nick%**!'
+      # in hex format.
+      color: '#00ff44'
+
+
+
 

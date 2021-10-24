@@ -1,10 +1,7 @@
-main: pl.q1zz.Main
-name: q1zZ-DiscordReward
+name: q1zZ-DiscordRewards
+main: pl.q1zz.DiscordRewards
 author: q1zZ
-version: 0.1
+version: 0.2
 api-version: 1.16
-website: https://zetcraft.pl
-description: by q1zZ
-commands:
-  q1zzReload:
-    aliases: [q1zZ-DiscordReward]
+description: Receiving a reward for joining a discord server!
+website: https://github.com/q1zZu
