@@ -74,7 +74,7 @@ public class DiscordRewards extends JavaPlugin {
                         "jdbc:mysql://" + host + ":" + port + "/" + database, username, password));
 
 
-                connection.createStatement().executeUpdate("CREATE TABLE IF NOT EXISTS `q1zz_receivedRewards` (`UniqueID` VARCHAR(96) PRIMARY KEY, `DiscordAccountID` VARCHAR(96));");
+                connection.createStatement().executeUpdate("CREATE TABLE IF NOT EXISTS `q1zz_receivedrewards` (`UniqueID` VARCHAR(96) PRIMARY KEY, `DiscordAccountID` VARCHAR(96));");
 
                 mysql = true;
 
