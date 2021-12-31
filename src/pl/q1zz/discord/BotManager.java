@@ -4,8 +4,9 @@ import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
 import org.bukkit.Bukkit;
-import pl.q1zz.objects.Bot;
-import pl.q1zz.reward.RewardClaim;
+import pl.q1zz.DiscordRewards;
+import pl.q1zz.listeners.RewardClaim;
+import pl.q1zz.varables.Config;
 
 import javax.security.auth.login.LoginException;
 import java.util.logging.Level;
@@ -19,31 +20,28 @@ public class BotManager {
     }
 
     public static void setStatus(String status) {
-        jda.getPresence().setActivity(Activity.playing(status));
+        if(!status.isEmpty()) {
+            jda.getPresence().setActivity(Activity.playing(status));
+        }
     }
 
-    public static void startBot() {
-        try {
+    public static void startBot() throws LoginException, InterruptedException {
+        JDABuilder builder = JDABuilder.createDefault(Config.TOKEN);
 
-            JDABuilder builder = JDABuilder.createDefault(Bot.token);
+        jda = builder.build();
 
-            jda = builder.build();
+        registerListeners();
+        setStatus(Config.STATUS);
 
-            registerListeners();
-            setStatus(Bot.status);
+        jda.awaitReady();
 
-            jda.awaitReady();
-        } catch (LoginException | InterruptedException e) {
-            Bukkit.getLogger().log(Level.SEVERE, "Could not login to bot token! Details:");
-            Bukkit.getLogger().log(Level.SEVERE, " " + e.getMessage() + "");
-            return;
-        }
+        DiscordRewards.getInstance().log("Bot was successfully started!");
     }
 
     public static void stopBot() {
         if(jda != null) {
             jda.shutdownNow();
-            Bukkit.getLogger().log(Level.SEVERE, "Successful disconnected from JDA!");
+            DiscordRewards.getInstance().log("Successful disconnected from JDA!");
         }
     }
 }

@@ -1,7 +1,7 @@
 name: q1zZ-DiscordRewards
 main: pl.q1zz.DiscordRewards
 author: q1zZ
-version: 0.2
+version: 0.3
 api-version: 1.16
 description: Receiving a reward for joining a discord server!
 website: https://github.com/q1zZu

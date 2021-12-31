@@ -8,7 +8,7 @@ datebase:
 # Discord bot configuration.
 bot:
   token: 'your_bot_token!'
-  status: 'q1zZ-DiscordRewards v0.2'
+  status: 'q1zZ-DiscordRewards v0.3'
 # Available methods: MySQL, Flat
 data:
   savetype: 'MySQL'
@@ -16,8 +16,16 @@ data:
 settings:
   # Id of channel to receiving reward
   channelid: '826894120471494697'
+  # blocks the possibility of receiving a reward
+  # to multiple nicks from one discord account.
+  # Working only for MySQL. If you want to get a similar
+  # effect for a different type of save, you can use assigning a role
+  doubleverification: true
 # Reward settings.
 reward:
+  # id of discord role. Player will get this role
+  # when received reward. To disable set 'disable'
+  roleid: 'disable'
   # commands executed when receiving the reward
   commands:
     - give %player% diamond 1
