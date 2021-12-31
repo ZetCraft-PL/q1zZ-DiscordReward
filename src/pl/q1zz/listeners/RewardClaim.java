@@ -48,10 +48,6 @@ public class RewardClaim extends ListenerAdapter {
                 }
                 LocalData.saveData(player, event.getAuthor().getIdLong());
                 executeCommands(player);
-
-                Bukkit.getLogger().info(""+event.getAuthor().getIdLong());
-                Bukkit.getLogger().info(""+ LocalData.getInstance().getData().getLong("RewardsReceived." + player.getName() + ".DiscordAccountID"));
-
                 event.getTextChannel().sendMessageEmbeds(EmbedMessage.createEmbed(Config.SUCCES_RECEIVED_EMBED_TITLE, Config.SUCCES_RECEIVED_COLOR, Config.SUCCES_RECEIVED_DESCRIPTION.replace("%mention%", event.getAuthor().getAsMention()).replace("%nick%", player.getName()))).queue();
 
                 giveRole(event.getMember());
