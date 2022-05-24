@@ -1,43 +1,52 @@
-# MySQL configuration.
-datebase:
-  hostname: 'localhost'
+# EN: Database connection settings.
+# PL: Konfiguracja połączenia bazy danych.
+mysql:
+  host: 'localhost'
   port: 3306
+  database: 'db_name'
   username: 'root'
-  datebase: 'discordRewards'
-  password: 'password'
-# Discord bot configuration.
+  password: 'password123%$@'
+# EN: Discord bot configuration.
+# PL: Konfiguracja bota discord.
 bot:
+  # EN: Bot token from https://discord.com/developers/applications
+  # PL: Token bota z strony https://discord.com/developers/applications
   token: 'your_bot_token!'
-  status: 'q1zZ-DiscordRewards v0.3'
-# Available methods: MySQL, Flat
-data:
-  savetype: 'MySQL'
-# Receiving reward settings.
+  # EN: Bot status
+  # PL: Status bota
+  status: 'q1zZ-DiscordRewards v0.4'
+# EN: Settings
+# PL: Ustawienia
 settings:
-  # Id of channel to receiving reward
-  channelid: '826894120471494697'
-  # blocks the possibility of receiving a reward
-  # to multiple nicks from one discord account.
-  # Working only for MySQL. If you want to get a similar
-  # effect for a different type of save, you can use assigning a role
-  doubleverification: true
-# Reward settings.
-reward:
-  # id of discord role. Player will get this role
-  # when received reward. To disable set 'disable'
-  roleid: 'disable'
-  # commands executed when receiving the reward
+  # EN: The time that must pass before the next reward can be received in milliseconds.
+  # PL: Czas jaki musi upłynąć przed odebraniem kolejnej nagrody w milisekundach.
+  receiving-cooldown: '86400000'
+  # EN: Minecraft nickname regex for checking if nickname is valid.
+  # PL: Regex dla nicków minecraft do sprawdzania poprawności nicku.
+  nickname-regex: '[a-zA-Z0-9_]+'
+  # EN: Id of discord channel for receiving rewards.
+  # PL: Id kanału z discorda do odbierania nagrody.
+  discordChannelID: '826444933547425882'
+# EN: Rewards settings.
+# PL: Ustawienia nagród.
+rewards:
+  # EN: This commands will be executed when player receive reward.
+  # PL: Komendy zostaną wykonane po odbiorze nagrody.
   commands:
-    - give %player% diamond 1
-  # broadcast will be sent when received the reward
+    - 'give %player% diamond 1'
+  # EN: This roles will be added to user on discord when receive reward.
+  # PL: Te role zostaną dodane do użytkownika na discordzie po odbiorze nagrody.
+  roles:
+    - '826444933547425886'
+  # EN: Broadcast when player receive reward.
+  # PL: Ogłoszenie gdy gracz odbierze nagrodę.
   broadcast:
-    - '&8&m--------------------------'
     - ' '
-    - '&8» &fPlayer &9%player% &fclaimed the discord reward!'
+    - '&8» &fPlayer &9%player% &freceived the discord reward!'
+    - '&8» &fDiscord link: &9&nhttps://discord.com/xxxxxx'
     - ' '
-    - '&8» &7Discord: &fhttps://discord.gg/ynqmeCKV'
-    - ' '
-    - '&8&m--------------------------'
+# EN: Messages configuration
+# PL: Konfiguracja wiadomości
 messages:
   embeds:
     # User entered wrong nickname.
@@ -48,6 +57,9 @@ messages:
       description: '%mention% > You entered the wrong nickname!'
       # in hex format.
       color: '#ff0000'
+      # Embed thumbnail url.
+      # Set empty ('') to disable.
+      thumbnail_url: ''
     # Player is offline.
     playerOffline:
       # embed title.
@@ -56,6 +68,9 @@ messages:
       description: '%mention% > You must be online on the server!'
       # in hex format.
       color: '#ff0000'
+      # Embed thumbnail url.
+      # Set empty ('') to disable.
+      thumbnail_url: ''
     # Reward has been already received.
     alreadyReceived:
       # embed title.
@@ -64,6 +79,9 @@ messages:
       description: '%mention% > Reward already been received!'
       # in hex format.
       color: '#ff0000'
+      # Embed thumbnail url.
+      # Set empty ('') to disable.
+      thumbnail_url: ''
     # Reward has been successfully received.
     successfulReceived:
       # embed title.
@@ -72,7 +90,6 @@ messages:
       description: '%mention% > You successfully received reward to **%nick%**!'
       # in hex format.
       color: '#00ff44'
-
-
-
-
+      # Embed thumbnail url.
+      # Set empty ('') to disable.
+      thumbnail_url: ''

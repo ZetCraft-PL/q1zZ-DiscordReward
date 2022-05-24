@@ -1,7 +1,6 @@
 name: q1zZ-DiscordRewards
-main: pl.q1zz.DiscordRewards
+version: 0.4
+main: me.q1zz.discordrewards.DiscordReward
 author: q1zZ
-version: 0.3
-api-version: 1.16
-description: Receiving a reward for joining a discord server!
+description: Simple plugin for receiving reward for join to discord server.
 website: https://github.com/q1zZu
