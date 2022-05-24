@@ -18,9 +18,6 @@ bot:
 # EN: Settings
 # PL: Ustawienia
 settings:
-  # EN: The time that must pass before the next reward can be received in milliseconds.
-  # PL: Czas jaki musi upłynąć przed odebraniem kolejnej nagrody w milisekundach.
-  receiving-cooldown: '86400000'
   # EN: Minecraft nickname regex for checking if nickname is valid.
   # PL: Regex dla nicków minecraft do sprawdzania poprawności nicku.
   nickname-regex: '[a-zA-Z0-9_]+'
