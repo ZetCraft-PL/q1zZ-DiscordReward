@@ -7,6 +7,7 @@ import me.q1zz.discordrewards.objects.User;
 import me.q1zz.discordrewards.util.FixColor;
 import me.q1zz.discordrewards.util.Utilis;
 import me.q1zz.discordrewards.variables.Config;
+import net.dv8tion.jda.api.entities.ChannelType;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Role;
@@ -27,6 +28,10 @@ public class ChannelMessage extends ListenerAdapter {
         }
 
         if (event.getAuthor().isBot() || event.isWebhookMessage()) {
+            return;
+        }
+
+        if(!event.isFromType(ChannelType.TEXT)) {
             return;
         }
 
