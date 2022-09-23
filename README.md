@@ -1,4 +1,2 @@
 # q1zZ-DiscordReward
-simple plugin for receiving discord reward!
-
-https://www.spigotmc.org/resources/q1zz-discordreward.96024/
+New repository: https://github.com/q1zZu/q1zZ-DiscordRewards
